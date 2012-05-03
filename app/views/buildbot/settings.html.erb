@@ -1,0 +1,34 @@
+<h2><%= l(:label_settings) %></h2>
+
+<div id="settings">
+  <% labelled_tabular_form_for(:buildbot_settings, @buildbot_settings,
+      :url  => { :project_id => @project },
+      :html => { :id => "buildbot_setting-form" }) do |f| %>
+    <%= error_messages_for("setting") %>
+    <div class="box">
+      <p>
+        <%= f.text_field(:host,
+              :size     => 40,
+              :required => true,
+              :label    => :label_buildbot_hostname
+            )
+          %>
+      </p>
+      <p>
+        <%= f.text_field(:builder,
+	:size => 30,
+	:required => true,
+	:label => :label_buildbot_builder
+	)
+	%>
+      </p>
+    </div>
+    <%= submit_tag l(:button_save) %>
+  <% end %>
+</div>
+
+<% content_for :sidebar do %>
+  <%= render :partial => "sidebar" %>
+<% end %>
+
+<% html_title(l(:title_buildbot_settings)) %>

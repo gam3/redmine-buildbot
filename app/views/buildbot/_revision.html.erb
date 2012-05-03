@@ -1,0 +1,23 @@
+<%
+  @project = Project.find(:first,
+    :conditions => [ "name = ?", project ]
+  )
+  @buildbot_settings = BuildbotSetting.find(:first,
+    :conditions => [ "project_id = ?", @project.id ]
+  )
+  @builds = BuildbotBuild.find(:all,
+    :conditions => [
+      "project_id = ? and c.revision = ? or c.scmid = ?",
+      @project.id, rev, rev
+    ],
+    :joins      => "LEFT JOIN changesets AS c on(buildbot_builds.changeset_id = c.id)"
+  )
+
+  if(@builds.any?)
+%>
+<p>&nbsp;</p>
+<h3><%= l(:label_buildbot_related) %></h3>
+
+<%= render :partial => "buildbot/builds" %>
+
+<% end %>

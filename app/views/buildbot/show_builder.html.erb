@@ -1,0 +1,15 @@
+<h2>Builder: <%= @builder.name %></h2>
+
+<% if(@builds.any?) %>
+<%= render :partial => "buildbot/builds" %>
+
+<p class="pagination"><%= pagination_links_full(@builds_pages, @builds_count) %></p>
+<% else %>
+<p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>
+
+<% content_for(:sidebar) do %>
+  <%= render(:partial => "sidebar") %>
+<% end %>
+
+<% html_title(l(:title_buildbot_recent)) %>

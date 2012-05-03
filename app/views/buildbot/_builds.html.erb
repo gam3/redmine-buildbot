@@ -1,0 +1,37 @@
+<table class="list changesets buildbot">
+  <thead>
+    <tr>
+      <th><%= l(:label_buildbot_time) %></th>
+      <th><%= l(:label_buildbot_revision) %></th>
+      <th><%= l(:label_buildbot_builder) %></th>
+      <th><%= l(:label_buildbot_build_no) %></th>
+      <th><%= l(:label_buildbot_result) %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for b in @builds do %>
+    <tr class="changeset <%= cycle 'odd', 'even' %>">
+      <td class="built_on"><%= format_time(b.end_time) %></td>
+      <td class="revision"><%= link_to_revision(b.revision, @project) %></td>
+      <td class="builder">
+        <%= link_to(b.builder.name,
+              {
+                :controller   => "buildbot",
+                :action       => "builder",
+                :project_id   => @project,
+                :builder_name => b.builder.name
+              },
+              :title => l(:label_buildbot_builder, b.builder.name)
+            )
+        %>
+      </td>
+      <td class="build_no">
+        <a href="http://<%= "%s/builders/%s/builds/%s" % [
+          @buildbot_settings.host, b.builder.name, b.number
+        ] %>">#<%= b.number %></a>
+       </td>
+      <td class="result build_<%= b.result %>"><%= l("result_#{b.result}") %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

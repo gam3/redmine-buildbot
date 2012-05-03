@@ -1,0 +1,55 @@
+en:
+  # Header
+  header_buildbot: "Buildbot"
+  header_settings: "Settings"
+
+  # Labels
+  label_buildbot_time: "Time"
+  label_buildbot_revision: "Revision"
+  label_buildbot_result: "Result"
+  label_buildbot_builder: "Builder"
+  label_buildbot_build_no: "Build"
+  label_buildbot_info: "Info"
+  label_buildbot_hostname: "Buildbot host"
+  label_buildbot_builder: "Builder"
+  label_buildbot_related: "Related builds"
+
+  # Links
+  link_buildbot_view_grid: "Grid Display"
+  link_buildbot_view_tgrid: "Transposed Grid Display"
+  link_buildbot_view_waterfall: "Waterfall Display"
+  link_buildbot_view_one_box_per_builder: "Latest Build"
+  link_buildbot_view_one_line_per_build: "Recent Builds"
+  link_buildbot_view_buildslaves: "Buildslaves"
+  link_buildbot_view_changes: "ChangeSource"
+
+  link_buildbot_update_builds: "Update builds"
+  link_buildbot_clear_builds: "Clear builds"
+  link_buildbot_update_settings: "Settings"
+
+  # Page titles
+  title_buildbot_recent: "Buildbot: Recent builds"
+  title_buildbot_waterfall: "Buildbot: Waterfall"
+  title_buildbot_grid: "Buildbot: Grid"
+  title_buildbot_settings: "Buildbot: Settings"
+
+  # Results
+  result_successful: "Success"
+  result_failed: "Failure"
+
+  result_warnings: "Warning"
+  result_skipped: "Skipped"
+  result_exception: "Exception"
+  result_retry: "Retry"
+
+  # Error messages
+  error_buildbot_connection_refused: "Connection refused - please check the hostname"
+  error_buildbot_update_time: "Last update interval must be smaller than current time"
+  error_buildbot_settings_missing: "Buildbot project settings missing"
+  error_buildbot_invalid_project: "Invalid or missing project"
+  error_buildbot_invalid_uri: "Invalid or malformed uri"
+
+  # Info messages
+  mesg_buildbot_builds_deleted: "Builds successfully deleted"
+  mesg_buildbot_builds_updated: "Builds successfully updated"
+  mesg_buildbot_confirm: "Are you sure?"

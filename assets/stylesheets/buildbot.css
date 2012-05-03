@@ -1,0 +1,20 @@
+dt.buildbot-build { background-image: url(../images/buildbot.png); }
+
+/* TDs */
+table.buildbot td { text-align: center; }
+
+table.buildbot td.built_on { width: 10%; }
+table.buildbot td.revision { width: 15%; }
+table.buildbot td.builder { width: 15%; }
+table.buildbot td.result {
+  padding: 0.1em 1em 0.1em 1em;
+  width: 7%;
+}
+table.buildbot td.build_no { width: 12%; }
+
+table.buildbot td.build_success   { background-color: #88ff88 !important; }
+table.buildbot td.build_warnings  { background-color: #ff9999 !important; }
+table.buildbot td.build_failure   { background-color: #ff9999 !important; }
+table.buildbot td.build_skipped   { background-color: #ffff88 !important; }
+table.buildbot td.build_exception { background-color: #ff0088 !important; }
+table.buildbot td.build_retry     { background-color: #ff9999 !important; }

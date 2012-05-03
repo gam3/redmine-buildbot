@@ -1,0 +1,50 @@
+<h3><%= l(:header_buildbot) %></h3>
+<% [
+    "grid", "tgrid", "waterfall", "one_box_per_builder",
+    "one_line_per_build", "buildslaves", "changes"
+  ].each do |link| %>
+    <%= link_to(l("link_buildbot_view_#{link}"),
+          File.join('http://', @buildbot_settings.host, link)
+        ) %>
+    <br />
+<% end %>
+
+<% if User.current.allowed_to?(:update_buildbot, @project, :global => true) %>
+  <h3><%= l(:label_administration) %></h3>
+  <%=
+    params = {
+      :controller => "buildbot",
+      :action     => "update",
+      :project_id => @project
+    }
+
+    link_to_remote(
+      l(:link_buildbot_update_builds),
+      { :url => params, :method => :get, :update => 'content', :complete => 'window.scrollTo(0,0)' },
+      { :href => url_for(:params => params) }
+    )
+  %>
+  <br />
+  <%=
+    params = {
+      :controller => "buildbot",
+      :action     => "clear",
+      :project_id => @project
+    }
+
+    link_to_remote(
+      l(:link_buildbot_clear_builds),
+      { :url => params, :method => :get, :update => 'content', :complete => 'window.scrollTo(0,0)' },
+      { :href => url_for(:params => params) }
+    )
+  %>
+  <br />
+  <%= link_to(l(:link_buildbot_update_settings),
+        {
+          :controller => "buildbot",
+          :action     => "settings",
+          :project_id => @project
+        }
+      )
+    %>
+<% end %>
